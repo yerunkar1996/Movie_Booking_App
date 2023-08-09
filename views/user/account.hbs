@@ -1,0 +1,25 @@
+
+<h1>Booking Histroy</h1>
+<div class="row">
+    {{# each orders}}
+        <table>
+            <tr>
+                <th>title</th>
+                <th>price</th>
+                <th>Qty</th>
+               
+            </tr>
+          {{# each this.items }} 
+           <tr>
+                
+                <td>{{this.item.title}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.qty}}</td>
+                
+               
+
+            </tr> {{/each}}
+        </table>
+        <p>totalPrice: {{this.cart.totalPrice}}</p>
+    {{/each}}
+</div>

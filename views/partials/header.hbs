@@ -1,0 +1,97 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .demo1{
+            margin-left: 800px;
+        }
+        .demo2{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+        .bg-light {
+    background-color: #baffff!important;
+}
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropbtn {
+  
+  color:black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+      background-color: #baffff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+      color: #7f5d71;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+
+.dropdown:hover .dropdown-content {display: block;}
+
+</style>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand demo2" href="http://localhost:3000/" style="color: crimson">Movie Booking</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="demo1">
+        <a class="nav-link" href="/movie-cart">
+          <span class="badge" style="color: #e61821; font-size: 16px; background-color: gray;border-radius: 166px;">{{session.cart.totalQty}}</span>
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;Movies cart 
+          
+          </a>
+      </li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li class="nav-item" style="margin-top: -8px;">
+     <div class="dropdown">
+  <button class="dropbtn" style="color: #7f5d71;"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;User</button>
+  <div class="dropdown-content">
+    {{# if login }}
+     <a href="/user/account">Account</a>
+   
+    <a href="/user/logout">Logout</a>
+   
+
+    {{ else }}
+    
+    <a href="/user/signup">Signup</a>
+   
+    <a href="/user/signin">Login</a>
+    {{/if}}
+   
+    
+  </div>
+</div>
+      
+      </li>
+      
+      
+    </ul>
+    
+  </div>
+</nav>

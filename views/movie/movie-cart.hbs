@@ -1,0 +1,100 @@
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropbtn {
+  
+  color:black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+      background-color: #ffbae2;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+      color: #7f5d71;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content{background-color: #ffbae2;}
+.dropdown:hover .dropdown-content {display: block;}
+
+</style>
+{{# if movies }}
+
+<div class="row" style="margin-left: 371px; margin-top: 23px;">
+<div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+    <h2>Movies added in your cart</h2>
+<ul class="list-group">
+    {{# each movies }} 
+    <li class="list-group-item">
+        <span class="badge">{{ this.qty }}</span>
+        <strong>{{ this.item.title }}</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+    <img height="70px" width="70" src="{{ this.item.imagepath }}">  
+     <span class="label label-success">Rs.{{ this.price }}</span>
+       <div class="dropdown">
+  <button class="dropbtn btn btn-success">Action</button>
+  <div class="dropdown-content">
+  
+     <a href="/reduce/{{ this.item._id}}">Reduce by 1</a>
+   
+    <a href="/remove/{{ this.item._id}}">Delete All</a>
+        
+  </div>
+</div>
+      
+
+    </li>
+    
+    {{/each}}
+    
+</ul>
+
+</div>
+</div>
+
+<div class="row" style="margin-left: 371px;
+    margin-top: 23px;">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+          <strong>Total:{{  totalPrice }}</strong>
+
+    </div>
+</div>
+<hr>
+<div class="row" style="margin-left: 371px;
+    margin-top: 23px;">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+          <a href="/checkout" type="button" class="btn btn-primary">Checkout</a>
+
+    </div>
+</div>
+
+{{ else }}
+
+
+
+<div class="row">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+          <h2>Your shopping cart is Empty</h2>
+
+    </div>
+</div>
+
+{{/if}}
+
+

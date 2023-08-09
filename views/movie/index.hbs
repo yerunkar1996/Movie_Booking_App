@@ -1,0 +1,44 @@
+<img src="images\movie.jpg" alt="movie" width="100%" height="500px">
+
+<style>
+.anu1{
+  margin-left: 75px;
+}
+
+@media screen and (max-width: 768px) {
+  .anu2{
+    margin-left: 1px;
+  }
+}
+</style>
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+    <div id="success" class="alert alert-success" {{# if noMessages }}hidden{{/if}}>
+        {{ successMsg }}
+    </div>
+  </div>
+</div> 
+
+
+<h1 align="center">Movies</h1>
+
+{{# each movies }}
+<div class="row" style="margin-left: 30px;">
+
+    {{# each this}}
+
+        <div class="card" style="width: 22rem;">
+  <img src="{{ this.imagepath }}" height="250" width="250" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5>{{this.title}}</h5>
+    <p>{{this.description}}</p>
+     <p>{{this.date}}</p>
+    <div>
+        <div clas="price pull-left">Rs.{{ this.price }}</div>
+        <a style="margin-top: -24px; background-color:forestgreen" href="/add-to-cart/{{ this.id }}" class="btn btn-primary pull-right">Book</a>
+    </div>
+  </div>
+</div>
+    {{/each}}
+</div>
+{{/each}}
